@@ -8,6 +8,7 @@ Because I was working with partition types and their GUIDs and I noticed there w
  - [x] Add `System` and `PartitionType` enums
  - [x] Group GUID structs in lazy_statics
  - [ ] Document everything (In progress)
+ - [ ] Standardize GUID struct names
 
 ## Usage
 This crate simply introduces two enums (`System` & `PartitionType`) and a struct (`GUID`)
@@ -23,16 +24,17 @@ This crate simply introduces two enums (`System` & `PartitionType`) and a struct
 }
 ```
 
+that being said heres an example of printing out the EFI GUID struct.
 ```rust
-extern crate guid_partition_types;
+extern crate guid_partition_types_rs;
 
-use guid_partition_types::{
+use guid_partition_types_rs::{
 	GUID,
 	System,
 	GENERAL_PARTITION_TYPES
 };
 
 fn main() {
-	println!("{:?}", *GENERAL_PARTITION_TYPES.get("EFI"));
+	println!("{:?}", GENERAL_PARTITION_TYPES.get("EFI"));
 }
 ```
