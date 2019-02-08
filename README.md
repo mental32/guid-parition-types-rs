@@ -15,11 +15,13 @@ This crate simply introduces two enums (`System` & `PartitionType`) and a struct
  - The `System` enum contains variants that are named after the supported OS types, e.g `Windows, Linux, FreeBSD, Apple, ChromeOS`
  - The `PartitionType` enum contains 127 variants of all documented partition type GUIDs following the format `($SYSTEMNAME)($PARTITIONTYPE)Partition` for instance `LinuxRaidPartition` or `CephDMCryptLUKSBlockWriteAhedLogPartition`
  - The `GUID` struct simply binds a `System` and a `PartitionType` variant together with `Debug` and `Display` implemented.
+
  ```rust
  pub struct GUID {
     string: &'static str,
     system: Option<System>
-}```
+}
+```
 
 ```rust
 extern crate guid_partition_types;
@@ -33,5 +35,4 @@ use guid_partition_types::{
 fn main() {
 	println!("{:?}", *GENERAL_PARTITION_TYPES.get("EFI"));
 }
-
 ```
