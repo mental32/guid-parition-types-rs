@@ -16,15 +16,6 @@ pub struct GUID {
     system: Option<System>
 }
 
-impl GUID {
-    pub fn new(string: &'static str, system: Option<System>) -> Self {
-        Self {
-            string: string,
-            system: system,
-        }
-    }
-}
-
 impl fmt::Debug for GUID {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "GUID{{ {:?} => {:?} }}", self.system, self.string)
